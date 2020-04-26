@@ -1,0 +1,12 @@
+.controlContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.controlContainer div{
+    padding-left:10px;
+    padding-right:10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+}
