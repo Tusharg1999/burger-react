@@ -12,6 +12,7 @@ const buildControls = (props) => {
 
         return (
             <div className="buildControlContainer">
+                <p>Burger Price: {props.totalPrice.toFixed(2)}$</p>
                 {
                     ingredients.map((ingredient) => {
                         return <Controls key={ingredient.label} label={ingredient.label}

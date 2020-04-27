@@ -3,10 +3,10 @@ import './Controls.css'
 const controls=(props)=>{
     return(
       <div className="controlContainer">
-          <div>{props.label}</div>
+          <div><p>{props.label}</p></div>
           <div>
-              <button onClick={props.addIngredient}>More</button>
-              <button onClick={props.removeIngredient}>less</button>
+              <button onClick={props.addIngredient}><p>+</p></button>
+              <button onClick={props.removeIngredient}><p>-</p></button>
           </div>
       </div>
     )
