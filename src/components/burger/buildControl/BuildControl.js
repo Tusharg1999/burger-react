@@ -11,20 +11,27 @@ const buildControls = (props) => {
         ];
 
         return (
-            <div className="buildControlContainer">
-                <p>Burger Price: {props.totalPrice.toFixed(2)}$</p>
-                {
-                    ingredients.map((ingredient) => {
-                        return <Controls key={ingredient.label} label={ingredient.label}
-                                         addIngredient={() => {
-                                             props.addIngredient(ingredient.type)
-                                         }}
+                <div className="buildControlContainer">
+                    <p>Burger Price: {props.totalPrice.toFixed(2)}$</p>
+                    {
+                        ingredients.map((ingredient) => {
+                            return <Controls key={ingredient.label} label={ingredient.label}
+                                             addIngredient={() => {
+                                                 props.addIngredient(ingredient.type)
+                                             }}
 
-                                         removeIngredient={()=> props.removeIngredient(ingredient.type)}
-                        />
-                    })
-                }
-            </div>
+                                             removeIngredient={() => props.removeIngredient(ingredient.type)}
+                            />
+                        })
+                    }
+                    <button
+                        type="submit"
+                        className="OrderButton"
+                        disabled={!props.purchasable}
+                        onClick={props.Purchasing}>ORDER NOW
+                    </button>
+                </div>
+
         )
     }
 ;
