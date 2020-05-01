@@ -4,6 +4,7 @@ import Burger from '../../components/burger/Burger'
 import BuildControl from '../../components/burger/buildControl/BuildControl'
 import Modal from '../../components/ui/modal/Modal'
 import OrderSummary from "../../components/burger/orderSummary/OrderSummary";
+import Checkout from "../../components/checkout/Checkout";
 
 const price = {
     cheese: 2,
@@ -100,6 +101,7 @@ class BurgerBuilder extends Component {
                     Purchasing={this.purchasingHandler}
                     purchasable={this.state.purchasable} totalPrice={this.state.totalPrice}
                     addIngredient={this.addItemHandler} removeIngredient={this.removeItemHandler}/>
+                    <Checkout/>
             </Aux>
         )
     }
