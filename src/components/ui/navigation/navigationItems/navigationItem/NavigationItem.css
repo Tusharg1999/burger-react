@@ -8,6 +8,7 @@ li a{
     color: #8F5C2C;
     text-decoration: none;
     width: 100%;
+    margin-left: 10px;
     box-sizing: border-box;
     display: block;
 }

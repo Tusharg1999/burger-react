@@ -4,7 +4,6 @@ import Burger from '../../components/burger/Burger'
 import BuildControl from '../../components/burger/buildControl/BuildControl'
 import Modal from '../../components/ui/modal/Modal'
 import OrderSummary from "../../components/burger/orderSummary/OrderSummary";
-import Checkout from "../../components/checkout/Checkout";
 
 const price = {
     cheese: 2,
@@ -27,6 +26,11 @@ class BurgerBuilder extends Component {
             purchasable: false,
             purchasing: false
         }
+    }
+
+    componentDidMount() {
+        console.log("here")
+        console.log(this.props);
     }
 
     addItemHandler = (type) => {
@@ -82,9 +86,17 @@ class BurgerBuilder extends Component {
     purchasingCancelHandler = () => {
         this.setState({purchasing: false})
     };
-    purchasingContinueHandler=()=>{
-        alert("continue")
-    }
+    purchasingContinueHandler = () => {
+        let queryParams = [];
+        for (let i in this.state.myIngredients) {
+            queryParams.push(encodeURIComponent(i)+'='+ encodeURIComponent(this.state.myIngredients[i]));
+        }
+       const queryString=queryParams.join('&');
+        this.props.history.push({
+            pathname:'/checkout',
+            search:'?'+queryString
+        })
+    };
 
     render() {
         return (
@@ -94,14 +106,13 @@ class BurgerBuilder extends Component {
                         total={this.state.totalPrice}
                         PurchaseContinue={this.purchasingContinueHandler}
                         PurchaseCancel={this.purchasingCancelHandler}
-                                  price={this.state.totalPrice} ingredientsList={this.state.myIngredients}/>
+                        price={this.state.totalPrice} ingredientsList={this.state.myIngredients}/>
                 </Modal>
                 <Burger ingredients={this.state.myIngredients}/>
                 <BuildControl
                     Purchasing={this.purchasingHandler}
                     purchasable={this.state.purchasable} totalPrice={this.state.totalPrice}
                     addIngredient={this.addItemHandler} removeIngredient={this.removeItemHandler}/>
-                    <Checkout/>
             </Aux>
         )
     }
