@@ -1,12 +1,17 @@
-.checkoutSummaryContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
+.checkoutSummaryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
-.ButtonDiv{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.ButtonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.checkoutSummaryContainer h5 {
+  font-weight: 300;
+  font-size: 18px;
+  margin: 20px;
 }

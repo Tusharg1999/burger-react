@@ -1,37 +1,38 @@
 .orderContainer {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .orderContainer h3 {
-    font-weight: normal;
-    margin-bottom: 10px;
+  font-weight: normal;
+  margin-bottom: 10px;
 }
 
 .orderForm {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .orderForm input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    outline: none;
-    border: 2px solid royalblue;
-    border-radius: 5px;
-    transition: .3s ease-in-out;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  margin-bottom: 10px;
+  border: 2px solid royalblue;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
 }
 
 .orderForm input::placeholder {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .orderForm input:focus {
-    box-shadow: 0 3px 4px 0 gray;
+  box-shadow: 0 3px 4px 0 gray;
 }

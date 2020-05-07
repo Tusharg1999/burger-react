@@ -1,8 +1,9 @@
 import React from "react";
 import './NavigationItem.css'
-const navigationItem=(props)=>{
-    return(
-        <li><a href="/">{props.children}</a></li>
+import { Link } from 'react-router-dom'
+const navigationItem = (props) => {
+    return (
+        <li><Link to={props.Link}>{props.children}</Link></li>
     )
 };
 export default navigationItem

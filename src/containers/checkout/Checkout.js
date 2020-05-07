@@ -1,31 +1,34 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import CheckoutSummary from "../../components/checkoutSummary/CheckoutSummary";
-
+import { connect } from 'react-redux'
 class Checkout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            myIngredients: {},
-        }
+            show: false
+        }~
     }
-
-    componentDidMount() {
-        console.log(this.props);
-        const search = new URLSearchParams(this.props.location.search);
-        let ingredients = {};
-        for (let param of search.entries()) {
-            ingredients[param[0]] = +param[1]
-        }
-        this.setState({myIngredients:ingredients})
+    orderNowHandler = () => {
+        this.setState({
+            show: true
+        })
     }
-
+    cancelOrderHandler = () => {
+        this.props.history.push('/')
+    }
     render() {
         return (
             <div>
-                <CheckoutSummary ingredients={this.state.myIngredients}/>
+                <CheckoutSummary Show={this.state.show} OrderNow={this.orderNowHandler} CancelOrder={this.cancelOrderHandler}
+                    Total={this.props.totalPrice} ingredients={this.props.myIngredients} />
             </div>
         )
     }
 }
-
-export default Checkout;
+const mapStateToProps = state => {
+    return {
+        myIngredients: state.ingredients,
+        totalPrice: state.totalPrice
+    }
+}
+export default connect(mapStateToProps)(Checkout);

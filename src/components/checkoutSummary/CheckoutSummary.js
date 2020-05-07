@@ -1,21 +1,25 @@
-import React,{Component} from "react";
+import React from "react";
 import Burger from '../burger/Burger'
 import './CheckoutSummary.css'
 import Button from "../ui/button/Button";
 import Order from "./order/Order";
-class CheckoutSummary extends Component{
-    render() {
-        return(
-            <div className="checkoutSummaryContainer">
-                <h1>Tasty Burger Below---</h1>
-                <Burger ingredients={this.props.ingredients}/>
-               <div className="ButtonDiv">
-                   <Button btnType="Danger">Cancel</Button>
-                   <Button>OrderNow</Button>
-               </div>
-                <Order/>
+import Modal from "../ui/modal/Modal"
+const checkoutSummary = props => {
+
+    return (
+        <div className="checkoutSummaryContainer">
+            <h1>Order Your Tasty Burger Now.</h1>
+            <h5>Buy Just For : {props.Total}$</h5 >
+            <Burger ingredients={props.ingredients} />
+            <div className="ButtonDiv">
+                <Button clicked={props.CancelOrder} btnType="Danger">Cancel</Button>
+                <Button clicked={props.OrderNow} >OrderNow</Button>
             </div>
-        )
-    }
+            <Modal show={props.Show}>
+                <Order />
+            </Modal>
+        </div>
+    )
 }
-export default CheckoutSummary;
+
+export default checkoutSummary;
