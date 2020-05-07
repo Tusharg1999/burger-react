@@ -1,5 +1,4 @@
-import * as myActions from '../actions/actions';
-// import { act } from 'react-dom/test-utils';
+import * as myActions from '../actions/actionTypes';
 
 const initialState = {
     ingredients: {

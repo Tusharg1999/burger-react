@@ -6,7 +6,7 @@ class Checkout extends Component {
         super(props);
         this.state = {
             show: false
-        }~
+        }
     }
     orderNowHandler = () => {
         this.setState({
@@ -27,8 +27,8 @@ class Checkout extends Component {
 }
 const mapStateToProps = state => {
     return {
-        myIngredients: state.ingredients,
-        totalPrice: state.totalPrice
+        myIngredients: state.burger.ingredients,
+        totalPrice: state.burger.totalPrice
     }
 }
 export default connect(mapStateToProps)(Checkout);

@@ -5,7 +5,8 @@ import BuildControl from '../../components/burger/buildControl/BuildControl'
 import Modal from '../../components/ui/modal/Modal'
 import OrderSummary from "../../components/burger/orderSummary/OrderSummary";
 import { connect } from 'react-redux';
-import { ADD_INGREDIENT, REMOVE_INGREDIENT } from '../../store/actions/actions'
+import * as burgerActions from '../../store/actions/burgerActions'
+
 class BurgerBuilder extends Component {
     constructor(props) {
         super(props);
@@ -65,16 +66,16 @@ class BurgerBuilder extends Component {
 }
 const mapStateToProps = state => {
     return {
-        myIngredients: state.ingredients,
-        totalPrice: state.totalPrice
+        myIngredients: state.burger.ingredients,
+        totalPrice: state.burger.totalPrice
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
         addIngredient: (ing) =>
-            dispatch({ type: ADD_INGREDIENT, ingredient: ing }),
+            dispatch(burgerActions.addIngredient({ ingredient: ing })),
         removeIngredient: (ing) =>
-            dispatch({ type: REMOVE_INGREDIENT, ingredient: ing })
+            dispatch(burgerActions.removeIngredient({ ingredient: ing }))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(BurgerBuilder);

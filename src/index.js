@@ -5,9 +5,15 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './store/reducers/reducers';
-const store = createStore(reducer);
+import { createStore, combineReducers } from 'redux';
+import BurgerReducer from './store/reducers/burgerBuilderReducers';
+import OrderReducer from './store/reducers/orderReducers';
+
+const rootReducers = combineReducers({
+    burger: BurgerReducer,
+    order: OrderReducer
+})
+const store = createStore(rootReducers);
 
 const app = (
     <Provider store={store}>
