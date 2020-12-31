@@ -1,0 +1,19 @@
+li{
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+}
+li a{
+    color: #8F5C2C;
+    text-decoration: none;
+    width: 100%;
+    margin-left: 10px;
+    box-sizing: border-box;
+    display: block;
+}
+li a:hover,
+li a:active,
+li a.active {
+    color: #40A4C8;
+}

@@ -1,0 +1,26 @@
+.controlContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.controlContainer div{
+    padding-left:10px;
+    padding-right:10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+}
+.controlContainer p{
+    font-size: 1.5rem;
+}
+
+.controlContainer button{
+    color: white;
+    padding: 5px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+}
